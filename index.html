@@ -76,7 +76,7 @@
     <h2>Klik Salah satu Materi Di bawah</h2>
     <ul class="file-list">
 
-      <li onclick="openPPT('https://raw.githubusercontent.com/abidrangers/TUGAS-UAS-MATKUL-TI/refs/heads/main/files/materiakidahakhlak.pptx')">📊 AKIDAH AKHLAK</li>
+      <li onclick="openSlides()">📊 AKIDAH AKHLAK</li>
 
       <li onclick="openPrezi()">🌀 Fiqih</li>
 
@@ -105,10 +105,9 @@
 
 <script>
  
-  function openPPT(path) {
+  function openSlides(path) {
     document.getElementById('viewerFrame').src =
-      "https://docs.google.com/gview?embedded=true&url=" +
-      window.location.origin + "/" + path;
+      "https://docs.google.com/presentation/d/e/2PACX-1vTvS5tTIHnk-ofPXARHoMhI2PbH9HWhj_7NC_z8VejA_s1_Q23K5QBXyziC-_vYWA/pub?start=false&loop=false&delayms=3000"
   }
 
   function openPrezi() {
@@ -129,5 +128,6 @@
 
 </body>
 </html>
+
 
 
