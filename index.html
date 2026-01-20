@@ -105,9 +105,13 @@
 
 <script>
  
-  function openSlides(path) {
-    document.getElementById('viewerFrame').src =
-      "https://docs.google.com/presentation/d/e/2PACX-1vTvS5tTIHnk-ofPXARHoMhI2PbH9HWhj_7NC_z8VejA_s1_Q23K5QBXyziC-_vYWA/pub?start=false&loop=false&delayms=3000"
+function showSlides() {
+  const iframe = document.getElementById("viewerFrame");
+  iframe.src = "";
+  setTimeout(() => {
+    iframe.src =
+      "https://docs.google.com/presentation/d/e/2PACX-1vTvS5tTIHnk-ofPXARHoMhI2PbH9HWhj_7NC_z8VejA_s1_Q23K5QBXyziC-_vYWA/pub?start=false&loop=false&delayms=3000";
+  }, 200);
   }
 
   function openPrezi() {
@@ -128,6 +132,7 @@
 
 </body>
 </html>
+
 
 
 
