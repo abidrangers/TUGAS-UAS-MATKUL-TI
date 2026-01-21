@@ -2,194 +2,168 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>WEBSITE TUGAS UAS MATKUL TI</title>
+  <title>Website Tugas UAS TI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f6f8;
     }
+
     header {
       background: #2c3e50;
       color: #fff;
-      padding: 15px 20px;
+      padding: 15px;
+      text-align: center;
     }
+
     header h1 {
       margin: 0;
-      font-size: 20px;
+      font-size: 18px;
     }
+
     .container {
       display: flex;
       height: calc(100vh - 60px);
     }
+
     .sidebar {
-      width: 300px;
-      background: #ffffff;
+      width: 280px;
+      background: #fff;
       border-right: 1px solid #ddd;
       overflow-y: auto;
     }
+
     .sidebar h2 {
-      font-size: 15px;
+      font-size: 14px;
       padding: 15px;
       margin: 0;
       border-bottom: 1px solid #ddd;
+      text-align: center;
     }
+
     .file-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .file-list li {
-      padding: 12px 15px;
+      padding: 14px;
       cursor: pointer;
       border-bottom: 1px solid #eee;
+      text-align: center;
     }
+
     .file-list li:hover {
       background: #f0f0f0;
     }
-  .viewer {
-  flex: 1;
-  background: #eaeaea;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
-iframe {
-  width: 100%;
-  min-height: 70vh;
-  border: none;
-  background: #fff;
-}
+    .viewer {
+      flex: 1;
+      background: #eaeaea;
+    }
 
+    iframe {
+      width: 100%;
+      min-height: 85vh;
       border: none;
       background: #fff;
     }
+
     .note {
-      padding: 10px 15px;
+      padding: 12px;
       font-size: 13px;
       color: #555;
+      text-align: center;
+    }
+
+    /* 🔥 MODE HP */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      iframe {
+        min-height: 90vh;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>MATERI MATERI DALAM BERBAGAI MODEL</h1>
+  <h1>MATERI DALAM BERBAGAI MODEL</h1>
 </header>
 
 <div class="container">
   <aside class="sidebar">
-    <h2>Klik Salah satu Materi Di bawah</h2>
+    <h2>Pilih Materi</h2>
     <ul class="file-list">
-    
 
-      <li onclick="showSlides()">📊 AKIDAH AKHLAK</li>
+      <li onclick="showSlides()">📊 Akidah Akhlak</li>
+
+      <li onclick="openFull()">📊 Akidah Akhlak (Full Screen)</li>
 
       <li onclick="openPrezi()">🌀 Fiqih</li>
 
       <li onclick="openCanva()">🎨 SKI</li>
 
-      <li onclick="openQuiz()">📝 SOAL/Quiz</li>
+      <li onclick="openQuiz()">📝 Soal / Quiz</li>
 
     </ul>
 
     <div class="note">
-      <strong>LAMAN INI DI BUAT OLEH:</strong><br>
-      NAMA: MOHAMMAD ZAINAL ABIDIN
-      NIM: 22308401011051
-      PRODI: PAI REGULAR
- 
+      <strong>Dibuat oleh:</strong><br>
+      Mohammad Zainal Abidin<br>
+      NIM: 22308401011051<br>
+      Prodi: PAI Reguler
     </div>
   </aside>
 
   <main class="viewer">
-    <iframe id="viewerFrame"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-    </iframe>
+    <iframe id="viewerFrame"></iframe>
   </main>
 </div>
 
 <script>
-  
-function showSlides() {
-  document.getElementById("viewerFrame").src =
-   "https://docs.google.com/presentation/d/18IBXo3A0kZWsbOqC7BmUjbiZA0PqtsXc/preview>?rm=minimal";
-}
+  function showSlides() {
+    document.getElementById("viewerFrame").src =
+      "https://docs.google.com/presentation/d/18IBXo3A0kZWsbOqC7BmUjbiZA0PqtsXc/preview";
+  }
 
+  function openFull() {
+    window.open(
+      "https://docs.google.com/presentation/d/18IBXo3A0kZWsbOqC7BmUjbiZA0PqtsXc/preview",
+      "_blank"
+    );
+  }
 
   function openPrezi() {
-    document.getElementById('viewerFrame').src =
-      "https://prezi.com/p/embed/yc1U6CRAeK3j8IpHd71i/?autoplay=1";
+    document.getElementById("viewerFrame").src =
+      "https://prezi.com/p/embed/yc1U6CRAeK3j8IpHd71i/";
   }
 
   function openCanva() {
-    document.getElementById('viewerFrame').src =
+    document.getElementById("viewerFrame").src =
       "https://www.canva.com/design/DAG-9VJJZaA/view?embed";
   }
 
   function openQuiz() {
-    document.getElementById('viewerFrame').src =
+    document.getElementById("viewerFrame").src =
       "https://docs.google.com/forms/d/e/1FAIpQLSdZq3cUqSUHlGsL72FzOuViUuVqa9NygBFG_Br-cmdBd6tt-g/viewform?embedded=true";
   }
-
-  <style>
-    @media (max-width: 768px) {
-
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-
-  header h1 {
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .file-list li {
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .viewer {
-    height: auto;
-    min-height: 70vh;
-  }
-
-  iframe {
-    min-height: 80vh;
-  }
-}
-
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
