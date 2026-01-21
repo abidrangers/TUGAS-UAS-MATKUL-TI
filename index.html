@@ -146,8 +146,17 @@
   }
 
   function openCanva() {
+   if (window.innerWidth <= 768) {
+    // HP → buka tab baru
+    window.open(
+      "https://www.canva.com/design/DAG-9VJJZaA/view",
+      "_blank"
+    );
+  } else {
+    // Desktop → iframe
     document.getElementById("viewerFrame").src =
       "https://www.canva.com/design/DAG-9VJJZaA/view?embed";
+   }
   }
 
   function openQuiz() {
