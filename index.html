@@ -12,21 +12,34 @@ body {
   background: #f4f6f8;
 }
 
+/* ===== HEADER + LOGO ===== */
 header {
   background: #2c3e50;
   color: #E6E6FA;
-  padding: 15px;
-  text-align: center;
+  padding: 10px 15px;
 }
 
-header h1 {
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-inner h1 {
   margin: 0;
   font-size: 18px;
+  text-align: center;
+  flex: 1;
 }
 
+.logo {
+  height: 40px;
+}
+
+/* ===== LAYOUT ===== */
 .container {
   display: flex;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 70px);
 }
 
 .sidebar {
@@ -128,7 +141,7 @@ header h1 {
   right: 50px;
 }
 
-/* MODE HP */
+/* ===== MODE HP ===== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -140,14 +153,27 @@ header h1 {
     border-right: none;
     border-bottom: 1px solid #ddd;
   }
+
+  .logo {
+    height: 30px;
+  }
+
+  .header-inner h1 {
+    font-size: 14px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ===== HEADER DENGAN LOGO ===== -->
 <header>
-  <h1>MATERI DALAM BERBAGAI MODEL</h1>
+  <div class="header-inner">
+    <img src="images.png" class="logo" alt="Logo Kiri">
+    <h1>MATERI DALAM BERBAGAI MODEL</h1>
+    <img src="images.png" class="logo" alt="Logo Kanan">
+  </div>
 </header>
 
 <div class="container">
@@ -155,11 +181,8 @@ header h1 {
     <h2>Pilih Materi</h2>
     <ul class="file-list">
       <li onclick="openModal('https://docs.google.com/presentation/d/18IBXo3A0kZWsbOqC7BmUjbiZA0PqtsXc/preview')">📊 Akidah Akhlak</li>
-
       <li onclick="openModal('https://prezi.com/p/embed/yc1U6CRAeK3j8IpHd71i/')">🌀 Fiqih</li>
-
       <li onclick="openCanva()">🎨 SKI</li>
-
       <li onclick="openModal('https://docs.google.com/forms/d/e/1FAIpQLSdZq3cUqSUHlGsL72FzOuViUuVqa9NygBFG_Br-cmdBd6tt-g/viewform?embedded=true')">📝 Soal / Quiz</li>
     </ul>
 
@@ -172,7 +195,7 @@ header h1 {
   </aside>
 </div>
 
-<!-- MODAL -->
+<!-- ===== MODAL ===== -->
 <div class="modal" id="modal">
   <div class="modal-content" id="modalContent">
     <span class="fullscreen-btn" onclick="toggleFullscreen()">⛶</span>
@@ -200,11 +223,8 @@ function closeModal() {
 
 function toggleFullscreen() {
   const elem = document.getElementById("modalContent");
-
   if (!document.fullscreenElement) {
-    elem.requestFullscreen().catch(err => {
-      alert("Fullscreen tidak didukung browser ini");
-    });
+    elem.requestFullscreen();
   } else {
     document.exitFullscreen();
   }
