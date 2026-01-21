@@ -67,11 +67,11 @@ header h1 {
   text-align: center;
 }
 
-/* ================= MODAL ================= */
+/* ============ MODAL ============ */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,16 +107,25 @@ header h1 {
   border: none;
 }
 
-.close-btn {
+/* Tombol */
+.close-btn,
+.fullscreen-btn {
   position: absolute;
   top: 10px;
-  right: 15px;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 10;
   background: #fff;
   border-radius: 50%;
-  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 9px;
+  z-index: 10;
+}
+
+.close-btn {
+  right: 10px;
+}
+
+.fullscreen-btn {
+  right: 50px;
 }
 
 /* MODE HP */
@@ -156,7 +165,7 @@ header h1 {
 
     <div class="note">
       <strong>Dibuat oleh:</strong><br>
-      Mohammad Zainal Abidin<br>
+      Nama: Mohammad Zainal Abidin<br>
       NIM: 22308401011051<br>
       Prodi: PAI Reguler
     </div>
@@ -165,7 +174,8 @@ header h1 {
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-content">
+  <div class="modal-content" id="modalContent">
+    <span class="fullscreen-btn" onclick="toggleFullscreen()">⛶</span>
     <span class="close-btn" onclick="closeModal()">✖</span>
     <iframe id="modalFrame"></iframe>
   </div>
@@ -175,15 +185,29 @@ header h1 {
 function openModal(url) {
   const modal = document.getElementById("modal");
   const frame = document.getElementById("modalFrame");
-
   frame.src = url;
   modal.classList.add("show");
 }
 
 function closeModal() {
-  const modal = document.getElementById("modal");
-  modal.classList.remove("show");
+  document.getElementById("modal").classList.remove("show");
   document.getElementById("modalFrame").src = "";
+
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  }
+}
+
+function toggleFullscreen() {
+  const elem = document.getElementById("modalContent");
+
+  if (!document.fullscreenElement) {
+    elem.requestFullscreen().catch(err => {
+      alert("Fullscreen tidak didukung browser ini");
+    });
+  } else {
+    document.exitFullscreen();
+  }
 }
 
 function openCanva() {
