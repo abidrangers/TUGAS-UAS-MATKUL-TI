@@ -48,13 +48,20 @@
     .file-list li:hover {
       background: #f0f0f0;
     }
-    .viewer {
-      flex: 1;
-      background: #eaeaea;
-    }
-    iframe {
-      width: 95%;
-      height: 95%;
+  .viewer {
+  flex: 1;
+  background: #eaeaea;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+iframe {
+  width: 100%;
+  min-height: 70vh;
+  border: none;
+  background: #fff;
+}
+
       border: none;
       background: #fff;
     }
@@ -130,10 +137,46 @@ function showSlides() {
     document.getElementById('viewerFrame').src =
       "https://docs.google.com/forms/d/e/1FAIpQLSdZq3cUqSUHlGsL72FzOuViUuVqa9NygBFG_Br-cmdBd6tt-g/viewform?embedded=true";
   }
+
+  <style>
+    @media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  header h1 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .file-list li {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .viewer {
+    height: auto;
+    min-height: 70vh;
+  }
+
+  iframe {
+    min-height: 80vh;
+  }
+}
+
 </script>
 
 </body>
 </html>
+
 
 
 
